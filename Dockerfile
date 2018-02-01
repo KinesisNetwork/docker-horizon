@@ -19,4 +19,6 @@ COPY --from=builder /go/bin/horizon /usr/local/bin/horizon
 
 EXPOSE 8000
 
-ENTRYPOINT ["/usr/local/bin/horizon"]
+ADD entry.sh /
+ENTRYPOINT ["/entry.sh"]
+CMD ["horizon"]
