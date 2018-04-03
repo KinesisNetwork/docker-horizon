@@ -1,8 +1,7 @@
 FROM golang:alpine as builder
 
 #Snapshots 2018-01-10-23:14:45
-ENV HORIZON_VERSION=eb8599c75aebcbe2fbf89fba3a5d9e13a4402201
-
+ENV HORIZON_VERSION=6e330ca8002a030c859b7f7b8ad341ae565b444b
 
 RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
     && mkdir -p /go/src/github.com/stellar/ \
@@ -10,7 +9,7 @@ RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
     && cd /go/src/github.com/stellar/go \
     && git checkout $HORIZON_VERSION \
     && glide install \
-    && go install github.com/stellar/go/services/horizon
+    && go install github.com/KinesisNetwork/go/services/horizon
 
 
 FROM alpine:latest
