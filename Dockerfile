@@ -5,12 +5,11 @@ ENV HORIZON_VERSION=6e330ca8002a030c859b7f7b8ad341ae565b444b
 
 RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
     && mkdir -p /go/src/github.com/stellar/ \
-    && git clone https://github.com/stellar/go.git /go/src/github.com/stellar/go \
+    && git clone https://github.com/KinesisNetwork/go.git /go/src/github.com/stellar/go \
     && cd /go/src/github.com/stellar/go \
-    && git checkout $HORIZON_VERSION \
+    && git checkout feature/ABX-4197 \
     && glide install \
-    && go install github.com/KinesisNetwork/go/services/horizon
-
+    && go install github.com/stellar/go/services/horizon
 
 FROM alpine:latest
 
