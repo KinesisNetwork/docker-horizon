@@ -1,7 +1,7 @@
 FROM golang:alpine as builder
 
 #Snapshots 2018-01-10-23:14:45
-ENV HORIZON_VERSION=f0514b102943b0d97c937baa0a46d9bb5dc26269
+ENV HORIZON_VERSION=3597e88a2cfc00e8d6de538b6a8bc31c6fa31ace
 
 RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
     && mkdir -p /go/src/github.com/stellar/ \
